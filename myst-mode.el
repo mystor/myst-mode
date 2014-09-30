@@ -1,12 +1,13 @@
 (defvar myst-keywords
   '("import"
-    "from"
     "as"
     "if"
     "then"
     "else"
     "fn"
-    "do")
+    "do"
+    "case"
+    "of")
   "Keywords in the Myst programming language")
 
 (defvar myst-builtins
@@ -43,7 +44,7 @@
       (1 font-lock-variable-name-face))
 
      ; Let statements
-     ("\\(let\\) \\([a-zA-Z0-9_]+\\)"
+     ("\\(let\\)\\( [a-zA-Z0-9_]+\\)?"
       (1 font-lock-keyword-face)
       (2 font-lock-variable-name-face))
      ))
@@ -57,7 +58,7 @@
     st)
   "Syntax table for myst-mode")
 
-(define-derived-mode myst-mode fundamental-mode "Myst code"
+(define-derived-mode myst-mode fundamental-mode "Myst"
   "Myst mode is a major mode for editing .myst files"
   :syntax-table myst-syntax-table
 
